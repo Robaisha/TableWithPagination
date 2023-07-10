@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import UserData from "../../mockData/UserData";
-const Table = () => {
+import React from "react";
+
+const Table = ({slicedData}) => {
+  
   return (
     <div>
       <table>
         <tr>
-          {Object.keys(UserData[0]).map((headerField) => {
-            return <th>{headerField}</th>;
+          {Object.keys(slicedData[0]).map((headerField) => {
+            return <th >{headerField}</th>;
           })}
         </tr>
-        {UserData.map((obj) => {
+        {slicedData.map((obj) => {
           return( 
-            <tr>
+            <tr >
             {Object.values(obj).map((entry) => {
             return (
                 <td>{entry}</td>
@@ -21,7 +22,6 @@ const Table = () => {
           );
         })}
       </table>
-      
     </div>
   );
 };

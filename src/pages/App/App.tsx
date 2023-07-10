@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Table } from "../../components/Table";
+import { Pagination } from "../../components/Pagination";
 
 const App = () => {
   return (
     <div>
-      <Table/>
+      <Pagination/>
     </div>
   );
 };

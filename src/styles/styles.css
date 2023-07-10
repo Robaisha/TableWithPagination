@@ -7,6 +7,9 @@ table,th,td {
     display: flex;
     margin: 20px;
 }
+button:active{
+    background:olive;
+}
 .data{
     text-align:center;
     justify-content: space-around;
