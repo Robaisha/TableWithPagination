@@ -5,10 +5,10 @@ import { Table } from "../../components/Table";
 import {usePagination} from "../../Hook";
 
 const App = () => {
-  let {nextPage ,prevPage,pageClick,numbers,slicedData}=usePagination()
+  let {nextPage ,prevPage,pageClick,numbers,data}=usePagination()
   return (
     <div>
-      <Table slicedData={slicedData}/>
+      <Table slicedData={data}/>
       <Pagination nextPage={nextPage} prevPage={prevPage} pageClick={pageClick} numbers={numbers}/>
     </div>
   );

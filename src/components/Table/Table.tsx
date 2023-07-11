@@ -1,28 +1,35 @@
 import React from "react";
+import { user } from "../../api/modal";
 
-type TablePropsType={
-  slicedData:Array<{id:number,name:string,age:number,gender:string}>
-}
-const Table:React.FC<TablePropsType> = ({slicedData}) => {
+type TablePropsType = {
+  slicedData: Array<user>;
+};
+
+const Table: React.FC<TablePropsType> = ({ slicedData }) => {
   return (
     <div>
       <table>
         <thead>
-          {Object.keys(slicedData[0]).map((headerField,key) => {
-            return <th key={key}>{headerField}</th>;
-          })}
+          <tr>
+            {slicedData.length &&
+              Object.keys(slicedData[0]).map((headerField: string, key) => {
+                return <th key={key}>{headerField}</th>;
+              })}
+          </tr>
         </thead>
-        {slicedData.map((obj,key) => {
-          return( 
-            <tr key={key}>
-            {Object.values(obj).map((entry,index) => {
+        <tbody>
+          {slicedData?.map((user, key) => {
             return (
-                <td key={index}>{entry}</td>
+              <tr key={key}>
+                {Object.values(user).map((obj, index) => {
+                  {if (typeof(obj)=="string"){
+                    return <td key={index}>{obj}</td>;
+                  }}
+                })}
+              </tr>
             );
           })}
-          </tr>
-          );
-        })}
+        </tbody>
       </table>
     </div>
   );
