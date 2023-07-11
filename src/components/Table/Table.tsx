@@ -1,21 +1,23 @@
 import React from "react";
 
-const Table = ({slicedData}) => {
-  
+type TablePropsType={
+  slicedData:Array<{id:number,name:string,age:number,gender:string}>
+}
+const Table:React.FC<TablePropsType> = ({slicedData}) => {
   return (
     <div>
       <table>
-        <tr>
-          {Object.keys(slicedData[0]).map((headerField) => {
-            return <th >{headerField}</th>;
+        <thead>
+          {Object.keys(slicedData[0]).map((headerField,key) => {
+            return <th key={key}>{headerField}</th>;
           })}
-        </tr>
-        {slicedData.map((obj) => {
+        </thead>
+        {slicedData.map((obj,key) => {
           return( 
-            <tr >
-            {Object.values(obj).map((entry) => {
+            <tr key={key}>
+            {Object.values(obj).map((entry,index) => {
             return (
-                <td>{entry}</td>
+                <td key={index}>{entry}</td>
             );
           })}
           </tr>
